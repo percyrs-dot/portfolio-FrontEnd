@@ -1,1 +1,183 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #1f2424;
+    color: #E7F6F2;
+}
+
+.navbar {
+    width: 100%;
+    justify-content: right;
+}
+
+.navbar img {
+    max-height: 60px;
+    color: #A5C9CA;
+}
+
+.arprog {
+    position: fixed;
+    right: 94%;
+    top: 0%;
+}
+
+.mat-card {
+    border-radius: 20px;
+    margin: 10px auto 10px auto;
+    padding: 20px;
+    border-color: #395B64;
+    background-color: #2d3333;
+    max-width: 80%;
+}
+
+.mat-card#first-card {
+    padding: 0;
+    margin-top: 60px;
+}
+
+div#profile-background {
+    overflow: hidden;
+    max-height: 350px;
+    display: flex;
+    z-index: 1;
+}
+
+div#profile-background img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    object-fit: cover;
+}
+
+.profile-image {
+    position: relative;
+    border-radius: 50%;
+    border: 3px solid #1f2424;
+    width: 202px;
+    height: 202px;
+    margin-top: -110px;
+    z-index: 2;
+}
+
+div#info-img{
+    display: flex;
+    position: relative;
+}
+
+.card-header{
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+div#info-text {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+div#info-actions {
+    display: block;
+}
+
+#info-details {
+    float: right;
+    list-style: none;
+}
+
+#info-details img{
+    float: right;
+    max-height: 50%;
+    max-width: 50%;
+}
+
+.btn-primary {
+    background-color: #395B64;
+    border: #2d3333;
+}
+
+.btn-primary:hover {
+    background-color: #314f57;
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-light {
+    background-color: #E7F6F2;
+    border: #2d3333;
+}
+
+.btn-light:hover {
+    background-color: #d1e0dc;
+}
+
+.btn-edit i {
+    margin-left: 20px;
+    padding: 10px;
+    color: #A5C9CA;
+    border: #395B64;
+    border-radius: 60%;
+    background-color: #395B64;
+}
+
+div i:hover{
+    background-color: #314f57;
+}
+
+div.btn-edit {
+    position: absolute;
+    left: 95%;
+    top: 20%;
+}
+
+nav i {
+    color: #A5C9CA;
+    padding: 2px;
+    top: 50%;
+    vertical-align: middle;
+}
+
+nav i:hover {
+    color: #E7F6F2;
+    margin: auto;
+    background: none;
+}
+
+.nav:last-child {
+    margin-right: 20px;
+}
+
+.about-info  {
+    margin: 20px;
+}
+
+.items-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.data-container {
+    display: flex;
+}
+
+.data-container img {
+    max-width: 160px;
+    margin-right: 20px;
+    float: left;
+}
+
+.data-container a {
+    text-decoration: none;
+}
+
+.list-info {
+    color: #d1e0dc;
+    white-space: nowrap;
+}
+
+.list-info h3 {
+    font-weight: bold;
+}
+
+.list-info p {
+    color: #959c9a;
+}
