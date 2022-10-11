@@ -10,6 +10,7 @@ import { EducationComponent } from './comp/education/education.component';
 import { SkillsComponent } from './comp/skills/skills.component';
 import { AchievementsComponent } from './comp/achievements/achievements.component';
 import { FooterComponent } from './comp/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './comp/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,12 +3,14 @@
       <h2>Skills</h2>
       <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
     </div>
-    <div>
-      <p class="display-6" style="text-align: center;">HTML</p>
-    </div>
-    <div class="progress" style="height: 20px; width: 60%; margin: auto;">
-      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
+    <li class="skills" *ngFor="let skillData of myData">
+      <div>
+        <p class="display-6" style="text-align: center;">{{skillData.name}}</p>
+      </div>
+      <div class="progress" style="height: 20px; width: 60%; margin: auto;">
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="skillData.level" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </li>
     <div class="info-actions">
       <button type="button" class="btn btn-light">New Aptitude</button>
     </div>

@@ -181,3 +181,7 @@ nav i:hover {
 .list-info p {
     color: #959c9a;
 }
+
+.skills {
+    list-style: none;
+}

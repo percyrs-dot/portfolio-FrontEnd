@@ -5,17 +5,17 @@
         <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
       </div>
       <ul class="items-list">
-        <li>
+        <li *ngFor="let jobData of myData">
           <div class="data-container">
             <a href="#">
               <div class="logo-image-container">
-                <img src="https://cdn.freebiesupply.com/logos/large/2x/hyundai-motor-company-2-logo-png-transparent.png">
+                <img [src]="jobData.img">
               </div>
               <div class="list-info">
-                  <h3>Hyundai</h3>
-                  <p>CEO</p>
-                  <h4>June 2012 - Present (10 years, 4 months)</h4>
-                  <h4>Buenos Aires, Argentina.</h4>
+                  <h3>{{jobData.name}}</h3>
+                  <p>{{jobData.position}}</p>
+                  <h4>{{jobData.time}}</h4>
+                  <h4>{{jobData.location}}</h4>
               </div>
             </a>
           </div>

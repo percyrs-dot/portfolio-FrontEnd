@@ -1,22 +1,22 @@
 <div class="card mat-card" id="first-card">
-  <div id="profile-background"><img src="https://i.pinimg.com/originals/79/fa/6b/79fa6bf27906dd49a1edbb6e16091721.jpg"></div>
+  <div id="profile-background"><img [src]="myData.profilebg"></div>
   <div id="info" style="padding: 16px">
     <div id="info-img">
-      <img class="profile-image" src="https://media-exp1.licdn.com/dms/image/C4E03AQElyfT1iCGAlw/profile-displayphoto-shrink_800_800/0/1660081054193?e=1670457600&v=beta&t=YJBjF4m5Ywq74jSdXtM3IfcvShfD4ipjvID8CgR0auU">
+      <img class="profile-image" [src]="myData.profilepic">
       <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
     </div>
     <div id="info-data">
       <div id="info-text">
-        <h1 class="display-4">Facundo Pascucci</h1>
-        <div id="info-company" class="lead">Looking for hire.</div>
+        <h1 class="display-4">{{myData.name}}</h1>
+        <div id="info-company" class="lead">{{myData.position}}</div>
         <div id="info-contact" class="lead">
-          <span>Buenos Aires, Argentina.</span>
+          <span>{{myData.location}}</span>
           <span><a href="#">Contact Info.</a></span>
         </div>
       </div>
       <ul id="info-details">
-        <li><a href="#">
-          <img src="https://www.argentina.gob.ar/sites/default/files/logo-inti-arg-blanco.png" alt="INTI">
+        <li><a [href]="myData.company.url">
+          <img [src]="myData.company.img" [alt]="myData.company.name">
         </a></li>
       </ul>
     </div>

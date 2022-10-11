@@ -5,20 +5,21 @@
         <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
       </div>
       <ul class="items-list">
-        <li>
+        <li *ngFor="let schoolData of myData">
           <div class="data-container">
-            <a href="#">
+            <a [href]="schoolData.url">
               <div class="logo-image-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LXrHOQ0u83hsvxKNmgN5MjYLl6zV7CcWrX0FaaQ0WQ&s">
+                <img [src]="schoolData.img">
               </div>
               <div class="list-info">
-                  <h3>Universidad Nacional de la Plata</h3>
-                  <p>Computer Engineering</p>
-                  <h4>January 2016 - 2018</h4>
-                  <h4>La Plata, Argentina.</h4>
+                  <h3>{{schoolData.name}}</h3>
+                  <p>{{schoolData.title}}</p>
+                  <h4>{{schoolData.time}}</h4>
+                  <h4>{{schoolData.location}}</h4>
               </div>
             </a>
           </div>
+          <br>
           <div class="data-control"></div>
         </li>
       </ul>
