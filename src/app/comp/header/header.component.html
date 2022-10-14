@@ -2,19 +2,27 @@
     <nav class="navbar fixed-top navbar-dark bg-dark" role="navigation">
       <ul class="nav justify-content-end">
         <a href="#"><img class="nav-item arprog" src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1662441043/APLogo-20-20.png" alt="Argentina Programa"></a>
-        <li class="nav-item">
-          <a class="navbar-brand" href="mailto:percyers@gmail.com">
-            <i class="fa-solid fa-square-envelope fa-xl"></i>
-          </a>   
+        <li class="nav-item">     
+          <button type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Sign in</button>      
         </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="https://www.linkedin.com/in/facundo-pascucci/">
-            <i class="fa-brands fa-linkedin fa-xl"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+        <li *ngIf="isLogged" class="nav-item">     
+          <button type="submit" class="btn btn-primary">Sign out</button>      
         </li>
       </ul>
     </nav>
 </div>
+<div *ngIf="show" class="login-window">
+  <form>
+    <div class="form-outline">
+      <input type="username" id="username" class="form-control"/>
+      <label class="form-label" for="username">Username</label>
+    </div>
+    <div class="form-outline mb-3">
+      <input type="password" id="password" class="form-control"/>
+        <label class="form-label" for="password">Password</label>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log in</button>
+    </div>
+  </form>
+</div> 

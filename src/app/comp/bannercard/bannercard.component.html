@@ -1,9 +1,9 @@
 <div class="card mat-card" id="first-card">
-  <div id="profile-background"><img [src]="myData.profilebg"></div>
+  <div id="profile-background"><img [src]="myData.profileBg"></div>
   <div id="info" style="padding: 16px">
     <div id="info-img">
-      <img class="profile-image" [src]="myData.profilepic">
-      <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+      <img class="profile-image" [src]="myData.profilePic">
+      <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
     </div>
     <div id="info-data">
       <div id="info-text">
@@ -11,7 +11,6 @@
         <div id="info-company" class="lead">{{myData.position}}</div>
         <div id="info-contact" class="lead">
           <span>{{myData.location}}</span>
-          <span><a href="#">Contact Info.</a></span>
         </div>
       </div>
       <ul id="info-details">
@@ -20,10 +19,9 @@
         </a></li>
       </ul>
     </div>
-    <div id="info-actions">
-      <button class="btn btn-primary" type="button">I'm interested in</button>
-      <button class="btn btn-light" type="button">Add Section</button>
-      <button class="btn btn-light" type="button">More</button>
-    </div>
+      <a class="card-button" href="https://www.linkedin.com/in/facundo-pascucci/">
+        <i class="fa-brands fa-linkedin fa-xl"></i></a>
+      <a class="card-button" href="mailto:percyers@gmail.com">
+        <i class="fa-solid fa-square-envelope fa-xl"></i></a>
   </div>
 </div>

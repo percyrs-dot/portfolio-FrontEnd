@@ -2,7 +2,7 @@
     <div id="education">
       <div class="card-header">
         <h2>Education</h2>
-        <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+        <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
       </div>
       <ul class="items-list">
         <li *ngFor="let schoolData of myData">
@@ -14,7 +14,7 @@
               <div class="list-info">
                   <h3>{{schoolData.name}}</h3>
                   <p>{{schoolData.title}}</p>
-                  <h4>{{schoolData.time}}</h4>
+                  <h4>{{schoolData.timeStart}} - {{schoolData.timeEnd}}</h4>
                   <h4>{{schoolData.location}}</h4>
               </div>
             </a>

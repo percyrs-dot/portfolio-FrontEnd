@@ -101,13 +101,11 @@ div#info-actions {
     box-shadow: none;
 }
 
-.btn-light {
-    background-color: #E7F6F2;
+.btn-primary:active {
+    outline: none;
+    box-shadow: none;
+    background-color: #395B64;
     border: #2d3333;
-}
-
-.btn-light:hover {
-    background-color: #d1e0dc;
 }
 
 .btn-edit i {
@@ -129,14 +127,15 @@ div.btn-edit {
     top: 20%;
 }
 
-nav i {
+.card-button i {
     color: #A5C9CA;
     padding: 2px;
     top: 50%;
     vertical-align: middle;
+    padding-right: 12px;
 }
 
-nav i:hover {
+.card-button i:hover {
     color: #E7F6F2;
     margin: auto;
     background: none;
@@ -184,4 +183,19 @@ nav i:hover {
 
 .skills {
     list-style: none;
+}
+
+.login-window {
+    position: fixed;
+    max-width: 200px;
+    z-index: 3;
+    right: 10px;
+    padding: 20px;
+    background-color: #161a1a;
+    border-radius: 5%;
+    text-align: center;  
+}
+
+.form-label {
+    
 }

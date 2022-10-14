@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/serv/data.service';
+import { LoginService } from 'src/app/serv/login.service';
+
 
 @Component({
   selector: 'app-achievements',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AchievementsComponent implements OnInit {
 
-  constructor() { }
+  isLogged = this.loginService.loggedIn;
+  myData: any;
+
+  constructor(
+    private dataProvider:DataService,
+    private loginService:LoginService
+  ) { }
 
   ngOnInit(): void {
   }

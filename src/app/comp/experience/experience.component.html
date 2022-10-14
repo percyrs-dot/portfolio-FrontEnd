@@ -2,7 +2,7 @@
     <div id="experience">
       <div class="card-header">
         <h2>Experience</h2>
-        <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+        <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
       </div>
       <ul class="items-list">
         <li *ngFor="let jobData of myData">
@@ -14,7 +14,7 @@
               <div class="list-info">
                   <h3>{{jobData.name}}</h3>
                   <p>{{jobData.position}}</p>
-                  <h4>{{jobData.time}}</h4>
+                  <h4>{{jobData.timeStart}} - {{jobData.timeEnd}}</h4>
                   <h4>{{jobData.location}}</h4>
               </div>
             </a>
