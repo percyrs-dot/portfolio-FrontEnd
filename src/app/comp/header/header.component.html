@@ -1,16 +1,18 @@
 <div class="navigation">
-    <nav class="navbar fixed-top navbar-dark bg-dark" role="navigation">
-      <ul class="nav justify-content-end">
-        <a href="#"><img class="nav-item arprog" src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1662441043/APLogo-20-20.png" alt="Argentina Programa"></a>
-        <li class="nav-item">     
-          <button type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Sign in</button>      
-        </li>
-        <li *ngIf="isLogged" class="nav-item">     
-          <button type="submit" class="btn btn-primary">Sign out</button>      
-        </li>
-      </ul>
-    </nav>
+  <nav class="navbar fixed-top navbar-dark bg-dark" role="navigation">
+    <a href="#"><img class="nav-item arprog" src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1662441043/APLogo-20-20.png" alt="Argentina Programa"></a>
+    <ul class="nav justify-content-end">
+      <li *ngIf="!isLogged" class="nav-item">     
+        <button *ngIf="!show" type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Log in</button>      
+        <button *ngIf="show" type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Hide</button>      
+      </li>
+      <li *ngIf="isLogged" class="nav-item">     
+        <button type="submit" class="btn btn-primary">Log out</button>      
+      </li>
+    </ul>
+  </nav>
 </div>
+
 <div *ngIf="show" class="login-window">
   <form>
     <div class="form-outline">
@@ -25,4 +27,4 @@
       <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log in</button>
     </div>
   </form>
-</div> 
+</div>

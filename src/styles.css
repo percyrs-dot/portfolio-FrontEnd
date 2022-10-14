@@ -92,20 +92,11 @@ div#info-actions {
     border: #2d3333;
 }
 
-.btn-primary:hover {
-    background-color: #314f57;
-}
-
-.btn-primary:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-.btn-primary:active {
-    outline: none;
-    box-shadow: none;
-    background-color: #395B64;
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #375963;
     border: #2d3333;
+    box-shadow: none;
+    outline: none;
 }
 
 .btn-edit i {
@@ -196,6 +187,8 @@ div.btn-edit {
     text-align: center;  
 }
 
-.form-label {
-    
+.footer {
+    padding: 40px;
+    text-align: center;
+    font-weight: lighter;
 }
