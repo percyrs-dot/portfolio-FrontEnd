@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
 import { LoginService } from 'src/app/serv/login.service';
 
-
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -19,8 +18,9 @@ export class AboutComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.dataProvider.provideData().subscribe(data => {
-      this.myData = data;
+    this.dataProvider.provideData('user/get').subscribe(data => {
+      this.myData = Object.assign({}, ...data);
+      console.log(this.myData);
     })
   }
 

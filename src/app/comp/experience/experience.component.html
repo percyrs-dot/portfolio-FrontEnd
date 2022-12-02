@@ -7,7 +7,7 @@
       <ul class="items-list">
         <li *ngFor="let jobData of myData">
           <div class="data-container">
-            <a href="#">
+            <a [href]="jobData.url">
               <div class="logo-image-container">
                 <img [src]="jobData.img">
               </div>

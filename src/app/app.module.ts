@@ -10,6 +10,9 @@ import { SkillsComponent } from './comp/skills/skills.component';
 import { AchievementsComponent } from './comp/achievements/achievements.component';
 import { FooterComponent } from './comp/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './comp/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -21,11 +24,13 @@ import { HttpClientModule } from '@angular/common/http';
     EducationComponent,
     SkillsComponent,
     AchievementsComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

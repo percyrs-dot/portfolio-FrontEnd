@@ -11,14 +11,8 @@ export class HeaderComponent implements OnInit {
 
   isLogged = this.loginService.loggedIn;
   show = false;
-  username = '';
-  password = '';
 
   constructor(private loginService:LoginService) { } 
-
-  Login(){
-    this.loginService.login(this.username, this.password)
-  }
 
   ngOnInit(): void {
   }

@@ -1,8 +1,8 @@
 <div class="card mat-card" id="first-card">
-  <div id="profile-background"><img [src]="myData.profileBg"></div>
+  <div id="profile-background"><img [src]="myData.profileBg" alt="Abstract art"></div>
   <div id="info" style="padding: 16px">
     <div id="info-img">
-      <img class="profile-image" [src]="myData.profilePic">
+      <img class="profile-image" [src]="myData.profilePic" alt="Me.">
       <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
     </div>
     <div id="info-data">
@@ -25,3 +25,4 @@
         <i class="fa-solid fa-square-envelope fa-xl"></i></a>
   </div>
 </div>
+

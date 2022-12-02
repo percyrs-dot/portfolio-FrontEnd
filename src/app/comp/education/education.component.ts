@@ -19,8 +19,8 @@ export class EducationComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.dataProvider.provideData().subscribe(data => {
-      this.myData = data.school;
+    this.dataProvider.provideData("edu/get").subscribe(data => {
+      this.myData = Object.assign({}, ...data);
     })
   }
 }
