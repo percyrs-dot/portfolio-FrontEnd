@@ -8,7 +8,7 @@
         <p class="display-6" style="text-align: center;">{{skillData.name}}</p>
       </div>
       <div class="progress" style="height: 20px; width: 60%; margin: auto;">
-        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="skillData.level" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="skillData.level + '%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </li>
     <div *ngIf="isLogged" class="info-actions">

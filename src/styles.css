@@ -16,7 +16,7 @@ body {
 .arprog {
     position: fixed;
     right: 94%;
-    top: 0%;
+    top: 0;
 }
 
 .mat-card {
@@ -120,10 +120,9 @@ div.btn-edit {
 
 .card-button i {
     color: #A5C9CA;
-    padding: 2px;
     top: 50%;
     vertical-align: middle;
-    padding-right: 12px;
+    padding: 2px 12px 2px 2px;
 }
 
 .card-button i:hover {
@@ -165,7 +164,7 @@ div.btn-edit {
 }
 
 .list-info h3 {
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .list-info p {
@@ -184,11 +183,27 @@ div.btn-edit {
     padding: 20px;
     background-color: #161a1a;
     border-radius: 5%;
-    text-align: center;  
+    text-align: center;
 }
 
 .footer {
     padding: 40px;
     text-align: center;
     font-weight: lighter;
+}
+
+.data-container {
+  margin-top: 20px;
+}
+
+.logo-image-container img {
+    max-width: 120px;
+    margin-top: 20px;
+    margin-right: 50px;
+    border-radius: 5%;
+}
+
+.skills {
+    padding-top: 12px;
+    padding-bottom: 6px;
 }

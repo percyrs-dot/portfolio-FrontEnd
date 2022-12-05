@@ -1,9 +1,12 @@
 <div class="card mat-card">
     <div class="card-header">
       <h2>About Me</h2>
-      <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+      <div *ngIf="isLogged" class="btn-edit"><a (click)="this.toggleEdit()" class="btn-right"><i class="fa fa-pencil"></i></a></div>
     </div>
-    <div class="about-info">
+    <div class="about-info" *ngIf="!showEdit">
       <p class="lead">{{myData.about}}</p>
+    </div>
+    <div class="about-info" *ngIf="showEdit">
+          <p>Form placeholder.</p>
     </div>
   </div>

@@ -12,6 +12,7 @@ export class AchievementsComponent implements OnInit {
 
   isLogged = this.loginService.loggedIn;
   myData: any;
+  showEdit = false;
 
   constructor(
     private dataProvider:DataService,
@@ -21,4 +22,7 @@ export class AchievementsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleEdit(){
+    this.showEdit = !this.showEdit;
+  }
 }

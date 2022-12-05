@@ -11,17 +11,20 @@ export class AboutComponent implements OnInit {
 
   isLogged = this.loginService.loggedIn;
   myData: any;
+  showEdit = false;
 
   constructor(
     private dataProvider:DataService,
-    private loginService:LoginService
-    ) { }
+    private loginService:LoginService,
+    ){}
 
   ngOnInit(): void {
     this.dataProvider.provideData('user/get').subscribe(data => {
       this.myData = Object.assign({}, ...data);
-      console.log(this.myData);
     })
   }
 
+  toggleEdit(){
+    this.showEdit = !this.showEdit;
+  }
 }

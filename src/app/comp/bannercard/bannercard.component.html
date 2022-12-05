@@ -8,16 +8,11 @@
     <div id="info-data">
       <div id="info-text">
         <h1 class="display-4">{{myData.name}}</h1>
-        <div id="info-company" class="lead">{{myData.position}}</div>
+        <div id="info-company" class="lead">{{myData.currentPosition}}</div>
         <div id="info-contact" class="lead">
           <span>{{myData.location}}</span>
         </div>
       </div>
-      <ul id="info-details">
-        <li><a [href]="myData.company.url">
-          <img [src]="myData.company.img" [alt]="myData.company.name">
-        </a></li>
-      </ul>
     </div>
       <a class="card-button" href="https://www.linkedin.com/in/facundo-pascucci/">
         <i class="fa-brands fa-linkedin fa-xl"></i></a>
