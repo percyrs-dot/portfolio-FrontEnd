@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/serv/data.service';
-import { LoginService } from 'src/app/serv/login.service';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from 'src/app/serv/data.service';
+import {AuthService} from 'src/app/serv/auth.service';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-bannercard',
@@ -9,18 +10,40 @@ import { LoginService } from 'src/app/serv/login.service';
 })
 export class BannercardComponent implements OnInit {
 
-  isLogged = this.loginService.loggedIn;
+  isLogged = this.authService.loggedIn;
   myData: any;
+  showEdit = false;
 
   constructor(
-    private dataProvider:DataService,
-    private loginService:LoginService
-    ) { }
+    private data:DataService,
+    private authService:AuthService,
+    private fb: FormBuilder
+){}
 
+  userFormEdit = this.fb.group({
+    name: [''],
+    currentPosition: [''],
+    location: [''],
+    profilePic: [''],
+    profileBg: ['']
+  })
   ngOnInit(): void {
-    this.dataProvider.provideData('user/get').subscribe(data => {
+    this.onGet()
+  }
+
+  onGet() {
+    this.data.getData("user/get").subscribe(data => {
       this.myData = Object.assign({}, ...data);
     })
   }
 
+  onUpdate(id: number) {
+    this.data.putData('user/put/', id, this.userFormEdit.value)
+      .subscribe(_ => this.onGet());
+    this.toggleEdit();
+  }
+
+  toggleEdit(){
+    this.showEdit = !this.showEdit;
+  }
 }

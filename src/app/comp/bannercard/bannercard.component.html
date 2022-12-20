@@ -1,23 +1,59 @@
 <div class="card mat-card" id="first-card">
-  <div id="profile-background"><img [src]="myData.profileBg" alt="Abstract art"></div>
+  <div id="profile-background"><img [src]="myData?.profileBg" alt="Abstract art"></div>
   <div id="info" style="padding: 16px">
     <div id="info-img">
-      <img class="profile-image" [src]="myData.profilePic" alt="Me.">
-      <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+      <img class="profile-image" [src]="myData?.profilePic" alt="Me.">
+      <div class="control-buttons" *ngIf="isLogged && !showEdit">
+        <a (click)="this.toggleEdit()" class="btn-edit"><i class="fa fa-pencil"></i></a>
+      </div>
     </div>
-    <div id="info-data">
+    <div id="info-data"  *ngIf="!showEdit">
       <div id="info-text">
-        <h1 class="display-4">{{myData.name}}</h1>
-        <div id="info-company" class="lead">{{myData.currentPosition}}</div>
+        <h1 class="display-4">{{myData?.name}}</h1>
+        <div id="info-company" class="lead">{{myData?.currentPosition}}</div>
         <div id="info-contact" class="lead">
-          <span>{{myData.location}}</span>
+          <span>{{myData?.location}}</span>
         </div>
       </div>
     </div>
+    <div class="data-control" *ngIf="isLogged && showEdit" style="max-width: 50%">
+      <form class="form-edit" [formGroup]="userFormEdit" (ngSubmit)="onUpdate(myData.id)">
+        <div class="row">
+          <div class="col">
+            <label for="editName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="editName" formControlName="name" [ngModel]="myData.name"/>
+          </div>
+          <div class="col">
+            <label for="editPosition" class="form-label">Current Position</label>
+            <input type="text" class="form-control" id="editPosition" formControlName="currentPosition" [ngModel]="myData.currentPosition"/>
+          </div>
+          <div class="col">
+            <label for="editLocation" class="form-label">Location</label>
+            <input type="text" class="form-control" id="editLocation" formControlName="location" [ngModel]="myData.location"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="editPic" class="form-label">Profile Picture URL</label>
+            <input type="text" class="form-control" id="editPic" formControlName="profilePic" [ngModel]="myData.profilePic"/>
+          </div>
+          <div class="col">
+            <label for="editBg" class="form-label">Banner Picture URL</label>
+            <input type="text" class="form-control" id="editBg" formControlName="profileBg" [ngModel]="myData.profileBg"/>
+          </div>
+        </div>
+        <br><button type="submit" class="btn btn-primary submit">Submit</button>
+        <button (click)="toggleEdit()" class="btn btn-primary submit">Cancel</button>
+      </form>
+    </div>
+    <div *ngIf="!showEdit">
+      <a class="card-button" href="https://github.com/percyrs-dot">
+        <i class="fa-brands fa-github-square fa-xl"></i></a>
       <a class="card-button" href="https://www.linkedin.com/in/facundo-pascucci/">
         <i class="fa-brands fa-linkedin fa-xl"></i></a>
       <a class="card-button" href="mailto:percyers@gmail.com">
         <i class="fa-solid fa-square-envelope fa-xl"></i></a>
+    </div>
   </div>
 </div>
 

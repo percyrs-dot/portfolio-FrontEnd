@@ -1,12 +1,18 @@
-<div class="card mat-card">
+<div class="card mat-card main-col1">
     <div class="card-header">
       <h2>About Me</h2>
-      <div *ngIf="isLogged" class="btn-edit"><a (click)="this.toggleEdit()" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+      <div class="control-buttons" *ngIf="isLogged && !showEdit">
+        <a (click)="this.toggleEdit()" class="btn-edit"><i class="fa fa-pencil"></i></a>
+      </div>
     </div>
     <div class="about-info" *ngIf="!showEdit">
-      <p class="lead">{{myData.about}}</p>
+      <p class="lead">{{myData?.about}}</p>
     </div>
-    <div class="about-info" *ngIf="showEdit">
-          <p>Form placeholder.</p>
+    <div class="data-control" *ngIf="isLogged && showEdit">
+      <form class="form-edit" [formGroup]="aboutFormEdit" (ngSubmit)="onUpdate(myData.id)">
+          <textarea type="text" class="form-control" id="editAbout" formControlName="about" [ngModel]="myData?.about"></textarea><br>
+        <button type="submit" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Submit</button>
+        <button (click)="toggleEdit()" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Cancel</button>
+      </form>
     </div>
   </div>

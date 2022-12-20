@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
-import { LoginService } from 'src/app/serv/login.service';
+import { AuthService } from 'src/app/serv/auth.service';
 import {Skill} from "../../../assets/data/entity";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-skills',
@@ -11,17 +12,67 @@ import {Skill} from "../../../assets/data/entity";
 
 export class SkillsComponent implements OnInit {
 
-  isLogged = this.loginService.loggedIn;
+  showNew = false;
+  isLogged = this.authService.loggedIn;
   myData: Skill[] | undefined;
+  editable: any;
 
   constructor(
-    private dataProvider:DataService,
-    private loginService:LoginService
+    private data:DataService,
+    private authService:AuthService,
+    private fb: FormBuilder
     ) { }
 
+  skillForm = this.fb.group({
+    name: [''],
+    level: ['']
+  })
+
+  skillFormEdit = this.fb.group({
+    name: [''],
+    level: ['']
+  })
+
   ngOnInit(): void {
-    this.dataProvider.provideData("skill/get").subscribe(data => {
+    this.onGet();
+  }
+
+  onGet() {
+    this.data.getData("skill/get").subscribe(data => {
       this.myData = data;
+      let editable = new Array<boolean>(data.length);
+      editable.fill(false);
+      this.editable = editable;
     })
+  }
+
+
+  onSubmit() {
+    this.data.postData('skill/post', this.skillForm.value)
+      .subscribe(_ => this.onGet());
+  }
+
+  onUpdate(id: number) {
+    this.data.putData('skill/put/', id, this.skillFormEdit.value)
+      .subscribe(_ => this.onGet());
+
+  }
+
+  onDelete(id: number) {
+    this.data.deleteData('skill/delete/', id)
+      .subscribe(_ => this.onGet());
+  }
+
+  toggleNew(){
+    this.showNew = !this.showNew;
+  }
+
+  toggleEdit(i: number){
+    if (this.editable[i]) {
+      this.editable[i] = false
+    } else {
+      this.editable.fill(false);
+      this.editable[i] = true
+    }
   }
 }

@@ -35,3 +35,12 @@ export interface Skill {
   name: string;
   level: number;
 }
+
+export interface Project {
+  id: number;
+  name: string;
+  description: string;
+  year: number;
+  img: string;
+  url: string;
+}

@@ -1,0 +1,83 @@
+<div class="card mat-card" *ngIf="myData?.length || isLogged">
+  <div id="experience">
+    <div class="card-header">
+      <h2>Projects</h2>
+      <div class="control-buttons" *ngIf="isLogged">
+        <a (click)="this.toggleNew()" class="btn-edit"><i class="fa fa-plus"></i></a>
+      </div>
+    </div>
+    <ul class="items-list">
+      <li *ngFor="let projData of myData; let i = index">
+        <div class="data-container">
+          <div class="logo-image-container">
+            <a [href]="projData.url">
+              <img [src]="projData.img" alt="Company logo.">
+            </a>
+          </div>
+          <div class="list-info" *ngIf="!this.editable[i]">
+            <div class="name-control">
+              <h3>{{projData.name}}</h3>
+              <div *ngIf="isLogged">
+                <a (click)="toggleEdit(i)" class="btn-edit"><i class="fa fa-pencil"></i></a>
+                <a (click)="this.onDelete(projData.id)" class="btn-edit"><i class="fa-solid fa-trash"></i></a>
+              </div>
+            </div>
+            <h4>{{projData.year}}</h4>
+            <h4>{{projData.description}}</h4>
+          </div>
+          <div class="data-control" *ngIf="this.editable[i]">
+            <form class="form-edit" [formGroup]="projFormEdit" (ngSubmit)="onUpdate(projData.id)">
+              <div class="row">
+                <div class="col">
+                  <label for="editName" class="form-label">School Name</label>
+                  <input type="text" class="form-control" id="editName" formControlName="name" [ngModel]="projData.name"/>
+                </div>
+                <div class="col">
+                  <label for="editDescription" class="form-label">Description</label>
+                  <input type="text" class="form-control" id="editDescription" formControlName="description" [ngModel]="projData.description"/>
+                </div>
+                <div class="col">
+                  <label for="editYear" class="form-label">Year</label>
+                  <input type="number" min="1900" max="2099" class="form-control" id="editYear" formControlName="year" [ngModel]="projData.year"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="editImg" class="form-label">Image Logo URL</label>
+                  <input type="text" class="form-control" id="editImg" formControlName="img" [ngModel]="projData.img"/>
+                </div>
+                <div class="col">
+                  <label for="editUrl" class="form-label">Project URL</label>
+                  <input type="text" class="form-control" id="editUrl" formControlName="url" [ngModel]="projData.url"/>
+                </div>
+              </div>
+              <br><button type="submit" class="btn btn-primary submit">Submit</button>
+              <button (click)="toggleEdit(i)" class="btn btn-primary submit">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="data-control form-window" *ngIf="showNew">
+    <form [formGroup]="projForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col">
+          <label for="name" class="form-label">Project Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name"/>
+        </div>
+        <div class="col">
+          <label for="year" class="form-label">Year</label>
+          <input type="number" min="1900" max="2099" class="form-control" id="year" formControlName="year"/>
+        </div>
+      </div>
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" formControlName="description"/>
+      <label for="img" class="form-label">Image Logo URL</label>
+      <input type="text" class="form-control" id="img" formControlName="img"/>
+      <label for="url" class="form-label">Project URL</label>
+      <input type="text" class="form-control" id="url" formControlName="url"/>
+      <br><button type="submit" class="btn btn-primary submit">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/serv/login.service';
+import { AuthService } from 'src/app/serv/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +9,21 @@ import { LoginService } from 'src/app/serv/login.service';
 
 export class HeaderComponent implements OnInit {
 
-  isLogged = this.loginService.loggedIn;
+
+  isLogged = this.authService.loggedIn;
   show = false;
 
-  constructor(private loginService:LoginService) { } 
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
 
   toggleLogin(){
     this.show = !this.show;
+ }
+
+ logOut(){
+    this.authService.logOut()
+    window.location.reload()
  }
 }

@@ -7,7 +7,7 @@ import { AboutComponent } from './comp/about/about.component';
 import { ExperienceComponent } from './comp/experience/experience.component';
 import { EducationComponent } from './comp/education/education.component';
 import { SkillsComponent } from './comp/skills/skills.component';
-import { AchievementsComponent } from './comp/achievements/achievements.component';
+import { ProjectsComponent } from './comp/projects/projects.component';
 import { FooterComponent } from './comp/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './comp/login/login.component';
@@ -23,9 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExperienceComponent,
     EducationComponent,
     SkillsComponent,
-    AchievementsComponent,
+    ProjectsComponent,
     FooterComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

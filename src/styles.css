@@ -90,6 +90,7 @@ div#info-actions {
 .btn-primary {
     background-color: #395B64;
     border: #2d3333;
+    margin-right: 10px;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -99,9 +100,18 @@ div#info-actions {
     outline: none;
 }
 
+.control-buttons {
+  position:absolute;
+  right: 12px;
+  top: 12px
+}
+.control-buttons a {
+  margin: 0 10px 0 0;
+}
+
 .btn-edit i {
-    margin-left: 20px;
     padding: 10px;
+    margin-left: 10px;
     color: #A5C9CA;
     border: #395B64;
     border-radius: 60%;
@@ -110,12 +120,6 @@ div#info-actions {
 
 div i:hover{
     background-color: #314f57;
-}
-
-div.btn-edit {
-    position: absolute;
-    left: 95%;
-    top: 20%;
 }
 
 .card-button i {
@@ -206,4 +210,41 @@ div.btn-edit {
 .skills {
     padding-top: 12px;
     padding-bottom: 6px;
+}
+
+.data-control {
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+.form-window {
+  position: absolute;
+  right: 8%;
+  top: -2%;
+  max-width: 400px;
+  z-index: 1;
+  padding: 20px;
+  background-color: #161a1a;
+  border-radius: 5%;
+}
+
+.list-info h3{
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.skill-title{
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.skill-edit {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.name-control {
+  display: flex;
 }

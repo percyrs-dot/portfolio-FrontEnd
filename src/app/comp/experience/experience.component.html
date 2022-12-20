@@ -2,25 +2,95 @@
     <div id="experience">
       <div class="card-header">
         <h2>Experience</h2>
-        <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+        <div class="control-buttons" *ngIf="isLogged">
+          <a (click)="this.toggleNew()" class="btn-edit"><i class="fa fa-plus"></i></a>
+        </div>
       </div>
       <ul class="items-list">
-        <li *ngFor="let jobData of myData">
+        <li *ngFor="let jobData of myData; let i = index">
           <div class="data-container">
-            <a [href]="jobData.url">
               <div class="logo-image-container">
-                <img [src]="jobData.img" alt="Company logo.">
+                <a [href]="jobData.url">
+                  <img [src]="jobData.img" alt="Company logo.">
+                </a>
               </div>
-              <div class="list-info">
-                  <h3>{{jobData.name}}</h3>
+              <div class="list-info" *ngIf="!this.editable[i]">
+                  <div class="name-control">
+                    <h3>{{jobData.name}}</h3>
+                    <div *ngIf="isLogged">
+                      <a (click)="toggleEdit(i)" class="btn-edit"><i class="fa fa-pencil"></i></a>
+                      <a (click)="this.onDelete(jobData.id)" class="btn-edit"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                  </div>
                   <p>{{jobData.position}}</p>
                   <h4>{{jobData.timeStart}} - {{jobData.timeEnd}}</h4>
                   <h4>{{jobData.location}}</h4>
               </div>
-            </a>
+            <div class="data-control" *ngIf="this.editable[i]">
+              <form class="form-edit" [formGroup]="expFormEdit" (ngSubmit)="onUpdate(jobData.id)">
+                <div class="row">
+                  <div class="col">
+                    <label for="editName" class="form-label">School Name</label>
+                    <input type="text" class="form-control" id="editName" formControlName="name" [ngModel]="jobData.name"/>
+                  </div>
+                  <div class="col">
+                    <label for="editPosition" class="form-label">Position</label>
+                    <input type="text" class="form-control" id="editPosition" formControlName="position" [ngModel]="jobData.position"/>
+                  </div>
+                  <div class="col">
+                    <label for="editLocation" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="editLocation" formControlName="location" [ngModel]="jobData.location"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="editTimeStart" class="form-label">Start Time</label>
+                    <input type="number" min="1900" max="2099" class="form-control" id="editTimeStart" formControlName="timeStart" [ngModel]="jobData.timeStart"/>
+                  </div>
+                  <div class="col">
+                    <label for="editTimeEnd" class="form-label">End Time</label>
+                    <input type="number" min="1900" max="2099" class="form-control" id="editTimeEnd" formControlName="timeEnd" [ngModel]="jobData.timeEnd"/>
+                  </div>
+                  <div class="col">
+                    <label for="editImg" class="form-label">Image Logo URL</label>
+                    <input type="text" class="form-control" id="editImg" formControlName="img" [ngModel]="jobData.img"/>
+                  </div>
+                  <div class="col">
+                    <label for="editUrl" class="form-label">Website URL</label>
+                    <input type="text" class="form-control" id="editUrl" formControlName="url" [ngModel]="jobData.url"/>
+                  </div>
+                </div>
+                <br><button type="submit" class="btn btn-primary submit">Submit</button>
+                <button (click)="toggleEdit(i)" class="btn btn-primary submit">Cancel</button>
+              </form>
+            </div>
           </div>
-          <div class="data-control"></div>
         </li>
       </ul>
     </div>
+  <div class="data-control form-window" *ngIf="showNew">
+    <form [formGroup]="expForm" (ngSubmit)="onSubmit()">
+      <label for="name" class="form-label">Company Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name"/>
+      <label for="position" class="form-label">Position</label>
+      <input type="text" class="form-control" id="position" formControlName="position"/>
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" id="location" formControlName="location"/>
+      <div class="row">
+        <div class="col">
+          <label for="timeStart" class="form-label">Start Time</label>
+          <input type="number" min="1900" max="2099" class="form-control" id="timeStart" formControlName="timeStart"/>
+        </div>
+        <div class="col">
+          <label for="timeEnd" class="form-label">End Time</label>
+          <input type="number" min="1900" max="2099" class="form-control" id="timeEnd" formControlName="timeEnd"/>
+        </div>
+      </div>
+      <label for="img" class="form-label">Image Logo URL</label>
+      <input type="text" class="form-control" id="img" formControlName="img"/>
+      <label for="url" class="form-label">Website URL</label>
+      <input type="text" class="form-control" id="url" formControlName="url"/>
+      <br><button type="submit" class="btn btn-primary submit">Submit</button>
+    </form>
+  </div>
   </div>

@@ -16,20 +16,20 @@
         "id": 1,
         "name": "Universidad Nacional de la Plata",
         "title": "Computer Engineering",
-        "timeStart": "2016",
-        "timeEnd": "2018",
+        "timeStart": 2016,
+        "timeEnd": 2018,
         "location": "La Plata, Argentina.",
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LXrHOQ0u83hsvxKNmgN5MjYLl6zV7CcWrX0FaaQ0WQ&s",
         "url": "https://unlp.edu.ar/"
     }, {
         "id": 2,
-        "name": "Escuela Normal Superior De Educación Media N°2",
-        "title": "Bachelor in Natural Sciences",
-        "timeStart": "2009",
-        "timeEnd": "2015",
-        "location": "Tres Arroyos, Argentina",
-        "img": "https://i.imgur.com/PQ2W8S1.jpg",
-        "url": "https://www.facebook.com/ENSTsAs/"
+      "name": "Escuela Normal Superior De Educación Media N2",
+      "title": "Bachelor in Natural Sciences",
+      "timeStart": 2009,
+      "timeEnd": 2015,
+      "location": "Tres Arroyos, Argentina",
+      "img": "https://i.imgur.com/PQ2W8S1.jpg",
+      "url": "https://www.facebook.com/ENSTsAs/"
     }],
     "experience": [{
         "id": 1,

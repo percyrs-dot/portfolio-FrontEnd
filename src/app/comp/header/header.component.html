@@ -2,12 +2,12 @@
   <nav class="navbar fixed-top navbar-dark bg-dark" role="navigation">
     <a href="#"><img class="nav-item arprog" src="https://desa.argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1660276176/APLogo-20-20.png" alt="Argentina Programa"></a>
     <ul class="nav justify-content-end">
-      <li *ngIf="!isLogged" class="nav-item">     
-        <button *ngIf="!show" type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Log in</button>      
-        <button *ngIf="show" type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Hide</button>      
+      <li *ngIf="!isLogged" class="nav-item">
+        <button *ngIf="!show" type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Log in</button>
+        <button *ngIf="show" type="submit" value="click" (click)="this.toggleLogin()" class="btn btn-primary">Hide</button>
       </li>
-      <li *ngIf="isLogged" class="nav-item">     
-        <button type="submit" class="btn btn-primary">Log out</button>      
+      <li *ngIf="isLogged" class="nav-item">
+        <button type="submit" class="btn btn-primary" (click)="logOut()">Log out</button>
       </li>
     </ul>
   </nav>

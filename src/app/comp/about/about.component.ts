@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
-import { LoginService } from 'src/app/serv/login.service';
+import { AuthService } from 'src/app/serv/auth.service';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-about',
@@ -9,19 +10,34 @@ import { LoginService } from 'src/app/serv/login.service';
 })
 export class AboutComponent implements OnInit {
 
-  isLogged = this.loginService.loggedIn;
+  isLogged = this.authService.loggedIn;
   myData: any;
   showEdit = false;
 
   constructor(
-    private dataProvider:DataService,
-    private loginService:LoginService,
-    ){}
+    private data:DataService,
+    private authService:AuthService,
+    private fb: FormBuilder
+  ){}
+
+  aboutFormEdit = this.fb.group({
+    about: ['']
+  })
 
   ngOnInit(): void {
-    this.dataProvider.provideData('user/get').subscribe(data => {
+    this.onGet()
+  }
+
+  onGet() {
+    this.data.getData("user/get").subscribe(data => {
       this.myData = Object.assign({}, ...data);
     })
+  }
+
+  onUpdate(id: number) {
+    this.data.putData('about/put/', id, this.aboutFormEdit.value)
+      .subscribe(_ => this.onGet());
+    this.toggleEdit();
   }
 
   toggleEdit(){

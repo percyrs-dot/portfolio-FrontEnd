@@ -1,17 +1,43 @@
-<div class="card mat-card">
+<div class="card mat-card main-col2">
     <div class="card-header">
       <h2>Skills</h2>
-      <div *ngIf="isLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pencil"></i></a></div>
+      <div class="control-buttons" *ngIf="isLogged">
+        <a (click)="this.toggleNew()" class="btn-edit"><i class="fa fa-plus"></i></a>
+      </div>
     </div>
-    <li class="skills" *ngFor="let skillData of myData">
-      <div>
-        <p class="display-6" style="text-align: center;">{{skillData.name}}</p>
+  <ul>
+    <li class="skills" *ngFor="let skillData of myData; let i = index">
+      <div *ngIf="!this.editable[i]">
+      <div class="skill-title name-control">
+        <h3 class="display-6" style="text-align: center;">{{skillData.name}}</h3>
+        <div *ngIf="isLogged">
+          <a (click)="toggleEdit(i)" class="btn-edit"><i class="fa fa-pencil"></i></a>
+          <a (click)="this.onDelete(skillData.id)" class="btn-edit"><i class="fa-solid fa-trash"></i></a>
+        </div>
       </div>
       <div class="progress" style="height: 20px; width: 60%; margin: auto;">
         <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="skillData.level + '%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
-    </li>
-    <div *ngIf="isLogged" class="info-actions">
-      <button type="button" class="btn btn-light">New Aptitude</button>
     </div>
+    <div class="data-control skill-edit" *ngIf="this.editable[i]">
+      <form class="form-edit" [formGroup]="skillFormEdit" (ngSubmit)="onUpdate(skillData.id)">
+          <label for="editName" class="form-label"><h3 class="display-6" style="text-align: center;">Skill</h3></label>
+            <input type="text" class="form-control" id="editName" formControlName="name" [ngModel]="skillData.name"/><br>
+          <label for="editLevel" class="form-label"><h3 class="display-6" style="text-align: center;">Level</h3></label>
+            <input type="range" class="form-range" min="0" max="100" id="editLevel" formControlName="level" [ngModel]="skillData.level"/><br>
+          <button type="submit" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Submit</button>
+          <button (click)="toggleEdit(i)" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Cancel</button>
+      </form>
+    </div>
+    </li>
+  </ul>
+  <div class="data-control form-window" *ngIf="showNew">
+    <form class="form-edit" [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+      <label for="name" class="form-label">Skill</label>
+        <input type="text" class="form-control" id="name" formControlName="name"/>
+      <label for="level" class="form-label">Level</label>
+        <input type="range" class="form-range" min="0" max="100" id="level" formControlName="level"/><br>
+      <button type="submit" class="btn btn-primary submit">Submit</button>
+    </form>
   </div>
+</div>
