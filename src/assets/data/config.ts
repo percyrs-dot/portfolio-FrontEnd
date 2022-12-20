@@ -1,4 +1,4 @@
 export { endpoint }
 
-const endpoint = "http://localhost:8080/"
+const endpoint = "https://ethical-cecil-percyrs-dot.koyeb.app/"
 
