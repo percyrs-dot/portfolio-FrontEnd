@@ -25,7 +25,19 @@ body {
     padding: 20px;
     border-color: #395B64;
     background-color: #2d3333;
-    max-width: 80%;
+}
+
+.card-container{
+  max-width: 80%;
+  margin: auto;
+}
+
+.main-col{
+  height: 600px;
+}
+
+.skill-container {
+  overflow: auto;
 }
 
 .mat-card#first-card {
@@ -177,6 +189,7 @@ div i:hover{
 
 .skills {
     list-style: none;
+    overflow: auto;
 }
 
 .login-window {

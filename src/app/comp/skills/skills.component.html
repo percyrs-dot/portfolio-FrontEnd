@@ -1,10 +1,11 @@
-<div class="card mat-card main-col2">
+<div class="card mat-card main-col">
     <div class="card-header">
       <h2>Skills</h2>
       <div class="control-buttons" *ngIf="isLogged">
         <a (click)="this.toggleNew()" class="btn-edit"><i class="fa fa-plus"></i></a>
       </div>
     </div>
+  <div class="skill-container">
   <ul>
     <li class="skills" *ngFor="let skillData of myData; let i = index">
       <div *ngIf="!this.editable[i]">
@@ -31,6 +32,7 @@
     </div>
     </li>
   </ul>
+  </div>
   <div class="data-control form-window" *ngIf="showNew">
     <form class="form-edit" [formGroup]="skillForm" (ngSubmit)="onSubmit()">
       <label for="name" class="form-label">Skill</label>

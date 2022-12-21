@@ -1,4 +1,4 @@
-<div class="card mat-card main-col1">
+<div class="card mat-card main-col">
     <div class="card-header">
       <h2>About Me</h2>
       <div class="control-buttons" *ngIf="isLogged && !showEdit">
@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="about-info" *ngIf="!showEdit">
-      <p class="lead">{{myData?.about}}</p>
+      <h2>{{myData?.about}}</h2>
     </div>
     <div class="data-control" *ngIf="isLogged && showEdit">
       <form class="form-edit" [formGroup]="aboutFormEdit" (ngSubmit)="onUpdate(myData.id)">
