@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="about-info" *ngIf="!showEdit">
-      <h2>{{myData?.about}}</h2>
+      <p class="display-6">{{myData?.about}}</p>
     </div>
     <div class="data-control" *ngIf="isLogged && showEdit">
       <form class="form-edit" [formGroup]="aboutFormEdit" (ngSubmit)="onUpdate(myData.id)">
           <textarea type="text" class="form-control" id="editAbout" formControlName="about" [ngModel]="myData?.about"></textarea><br>
-        <button type="submit" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Submit</button>
+        <button type="submit" class="btn btn-primary submit" style="margin: 0 5px 0 5px;"[disabled]="!aboutFormEdit.valid">Submit</button>
         <button (click)="toggleEdit()" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Cancel</button>
       </form>
     </div>

@@ -42,7 +42,7 @@
             <input type="text" class="form-control" id="editBg" formControlName="profileBg" [ngModel]="myData.profileBg"/>
           </div>
         </div>
-        <br><button type="submit" class="btn btn-primary submit">Submit</button>
+        <br><button type="submit" class="btn btn-primary submit" [disabled]="!userFormEdit.valid">Submit</button>
         <button (click)="toggleEdit()" class="btn btn-primary submit">Cancel</button>
       </form>
     </div>

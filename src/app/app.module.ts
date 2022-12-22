@@ -10,7 +10,7 @@ import { SkillsComponent } from './comp/skills/skills.component';
 import { ProjectsComponent } from './comp/projects/projects.component';
 import { FooterComponent } from './comp/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './comp/login/login.component';
+import { LoginComponent } from './comp/header/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 

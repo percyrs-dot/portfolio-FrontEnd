@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
 import { AuthService } from 'src/app/serv/auth.service';
 import { Experience } from "../../../assets/data/entity";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-experience',
@@ -26,23 +26,23 @@ export class ExperienceComponent implements OnInit {
   }
 
   expForm = this.fb.group({
-    name: [''],
-    position: [''],
-    timeStart: [''],
-    timeEnd: [''],
-    location: [''],
-    img: [''],
-    url: ['']
+    name: ['', [Validators.required]],
+    position: ['', [Validators.required]],
+    timeStart: ['', [Validators.required]],
+    timeEnd: ['', [Validators.required]],
+    location: ['', [Validators.required]],
+    img: ['', [Validators.required]],
+    url: ['', [Validators.required]]
   })
 
   expFormEdit = this.fb.group({
-    name: [''],
-    position: [''],
-    timeStart: [''],
-    timeEnd: [''],
-    location: [''],
-    img: [''],
-    url: ['']
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    position: ['', [Validators.required, Validators.maxLength(45)]],
+    timeStart: ['', [Validators.required]],
+    timeEnd: ['', [Validators.required]],
+    location: ['', [Validators.required, Validators.maxLength(45)]],
+    img: ['', [Validators.required, Validators.maxLength(255)]],
+    url: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   ngOnInit(): void {

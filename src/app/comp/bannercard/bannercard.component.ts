@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from 'src/app/serv/data.service';
 import {AuthService} from 'src/app/serv/auth.service';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-bannercard',
@@ -21,12 +21,13 @@ export class BannercardComponent implements OnInit {
 ){}
 
   userFormEdit = this.fb.group({
-    name: [''],
-    currentPosition: [''],
-    location: [''],
-    profilePic: [''],
-    profileBg: ['']
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    currentPosition: ['', [Validators.required, Validators.maxLength(45)]],
+    location: ['', [Validators.required, Validators.maxLength(45)]],
+    profilePic: ['', [Validators.required, Validators.maxLength(255)]],
+    profileBg: ['', [Validators.required, Validators.maxLength(255)]]
   })
+
   ngOnInit(): void {
     this.onGet()
   }

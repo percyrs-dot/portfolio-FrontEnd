@@ -112,6 +112,10 @@ div#info-actions {
     outline: none;
 }
 
+.btn-primary:disabled {
+  background-color: #56696e;
+}
+
 .control-buttons {
   position:absolute;
   right: 12px;
@@ -239,6 +243,10 @@ div i:hover{
   padding: 20px;
   background-color: #161a1a;
   border-radius: 5%;
+}
+
+.form-buttons{
+  text-align: center;
 }
 
 .list-info h3{

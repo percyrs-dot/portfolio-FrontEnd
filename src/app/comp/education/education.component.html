@@ -61,7 +61,7 @@
                       <input type="text" class="form-control" id="editUrl" formControlName="url" [ngModel]="schoolData.url"/>
                     </div>
                   </div>
-                  <br><button type="submit" class="btn btn-primary submit">Submit</button>
+                  <br><button type="submit" class="btn btn-primary submit" [disabled]="!eduFormEdit.valid">Submit</button>
                   <button (click)="toggleEdit(i)" class="btn btn-primary submit">Cancel</button>
                 </form>
               </div>
@@ -91,8 +91,10 @@
               <input type="text" class="form-control" id="img" formControlName="img"/>
             <label for="url" class="form-label">Website URL</label>
               <input type="text" class="form-control" id="url" formControlName="url"/>
-          <br><button type="submit" class="btn btn-primary submit">Submit</button>
-
+              <div class="form-buttons"><br>
+                <button type="submit" class="btn btn-primary submit" [disabled]="!eduForm.valid">Submit</button>
+                <button (click)="this.toggleNew()" class="btn btn-primary submit" style="margin: 0 5px 0 5px;">Cancel</button>
+              </div>
         </form>
       </div>
     </div>

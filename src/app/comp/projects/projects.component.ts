@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
 import { AuthService } from 'src/app/serv/auth.service';
 import { Project } from "../../../assets/data/entity";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 
 @Component({
@@ -24,19 +24,19 @@ export class ProjectsComponent implements OnInit {
   ) { }
 
   projForm = this.fb.group({
-    name: [''],
-    description: [''],
-    year: [''],
-    img: [''],
-    url: ['']
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    description: ['', [Validators.required, Validators.maxLength(255)]],
+    year: ['', [Validators.required]],
+    img: ['', [Validators.required, Validators.maxLength(255)]],
+    url: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   projFormEdit = this.fb.group({
-    name: [''],
-    description: [''],
-    year: [''],
-    img: [''],
-    url: ['']
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    description: ['', [Validators.required, Validators.maxLength(255)]],
+    year: ['', [Validators.required]],
+    img: ['', [Validators.required, Validators.maxLength(255)]],
+    url: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   ngOnInit(): void {

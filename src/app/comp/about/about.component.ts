@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
 import { AuthService } from 'src/app/serv/auth.service';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-about',
@@ -21,7 +21,7 @@ export class AboutComponent implements OnInit {
   ){}
 
   aboutFormEdit = this.fb.group({
-    about: ['']
+    about: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   ngOnInit(): void {

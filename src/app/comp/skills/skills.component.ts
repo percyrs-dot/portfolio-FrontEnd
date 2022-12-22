@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
 import { AuthService } from 'src/app/serv/auth.service';
 import {Skill} from "../../../assets/data/entity";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-skills',
@@ -24,12 +24,12 @@ export class SkillsComponent implements OnInit {
     ) { }
 
   skillForm = this.fb.group({
-    name: [''],
+    name: ['',[Validators.required, Validators.maxLength(45)]],
     level: ['']
   })
 
   skillFormEdit = this.fb.group({
-    name: [''],
+    name: ['',[Validators.required, Validators.maxLength(45)]],
     level: ['']
   })
 

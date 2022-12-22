@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/serv/data.service';
 import { AuthService } from 'src/app/serv/auth.service';
 import { Education } from "../../../assets/data/entity";
-import { FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 
 @Component({
@@ -26,23 +26,23 @@ export class EducationComponent implements OnInit {
   }
 
   eduForm = this.fb.group({
-    name: [''],
-    title: [''],
-    timeStart: [''],
-    timeEnd: [''],
-    location: [''],
-    img: [''],
-    url: ['']
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    title: ['', [Validators.required], Validators.maxLength(45)],
+    timeStart: ['', [Validators.required]],
+    timeEnd: ['', [Validators.required]],
+    location: ['', [Validators.required], Validators.maxLength(45)],
+    img: ['', [Validators.required], Validators.maxLength(255)],
+    url: ['', [Validators.required], Validators.maxLength(255)]
   })
 
   eduFormEdit = this.fb.group({
-    name: [''],
-    title: [''],
-    timeStart: [''],
-    timeEnd: [''],
-    location: [''],
-    img: [''],
-    url: ['']
+    name: ['', [Validators.required], Validators.maxLength(45)],
+    title: ['', [Validators.required], Validators.maxLength(45)],
+    timeStart: ['', [Validators.required]],
+    timeEnd: ['', [Validators.required]],
+    location: ['', [Validators.required], Validators.maxLength(45)],
+    img: ['', [Validators.required], Validators.maxLength(255)],
+    url: ['', [Validators.required], Validators.maxLength(255)]
   })
 
   ngOnInit(): void {
