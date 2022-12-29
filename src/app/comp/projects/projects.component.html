@@ -29,7 +29,7 @@
             <form class="form-edit" [formGroup]="projFormEdit" (ngSubmit)="onUpdate(projData.id)">
               <div class="row">
                 <div class="col">
-                  <label for="editName" class="form-label">School Name</label>
+                  <label for="editName" class="form-label">Project Name</label>
                   <input type="text" class="form-control" id="editName" formControlName="name" [ngModel]="projData.name"/>
                 </div>
                 <div class="col">
@@ -51,7 +51,7 @@
                   <input type="text" class="form-control" id="editUrl" formControlName="url" [ngModel]="projData.url"/>
                 </div>
               </div>
-              <br><button type="submit" class="btn btn-primary submit"[disabled]="!projFormEdit.valid">Submit</button>
+              <br><button type="submit" class="btn btn-primary submit" [disabled]="!projFormEdit.valid">Submit</button>
               <button (click)="toggleEdit(i)" class="btn btn-primary submit">Cancel</button>
             </form>
           </div>

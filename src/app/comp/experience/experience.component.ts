@@ -26,13 +26,13 @@ export class ExperienceComponent implements OnInit {
   }
 
   expForm = this.fb.group({
-    name: ['', [Validators.required]],
-    position: ['', [Validators.required]],
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    position: ['', [Validators.required, Validators.maxLength(45)]],
     timeStart: ['', [Validators.required]],
     timeEnd: ['', [Validators.required]],
-    location: ['', [Validators.required]],
-    img: ['', [Validators.required]],
-    url: ['', [Validators.required]]
+    location: ['', [Validators.required, Validators.maxLength(45)]],
+    img: ['', [Validators.required, Validators.maxLength(255)]],
+    url: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   expFormEdit = this.fb.group({

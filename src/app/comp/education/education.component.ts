@@ -27,22 +27,22 @@ export class EducationComponent implements OnInit {
 
   eduForm = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(45)]],
-    title: ['', [Validators.required], Validators.maxLength(45)],
+    title: ['', [Validators.required, Validators.maxLength(45)]],
     timeStart: ['', [Validators.required]],
     timeEnd: ['', [Validators.required]],
-    location: ['', [Validators.required], Validators.maxLength(45)],
-    img: ['', [Validators.required], Validators.maxLength(255)],
-    url: ['', [Validators.required], Validators.maxLength(255)]
+    location: ['', [Validators.required, Validators.maxLength(45)]],
+    img: ['', [Validators.required, Validators.maxLength(255)]],
+    url: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   eduFormEdit = this.fb.group({
-    name: ['', [Validators.required], Validators.maxLength(45)],
-    title: ['', [Validators.required], Validators.maxLength(45)],
+    name: ['', [Validators.required, Validators.maxLength(45)]],
+    title: ['', [Validators.required, Validators.maxLength(45)]],
     timeStart: ['', [Validators.required]],
     timeEnd: ['', [Validators.required]],
-    location: ['', [Validators.required], Validators.maxLength(45)],
-    img: ['', [Validators.required], Validators.maxLength(255)],
-    url: ['', [Validators.required], Validators.maxLength(255)]
+    location: ['', [Validators.required, Validators.maxLength(45)]],
+    img: ['', [Validators.required, Validators.maxLength(255)]],
+    url: ['', [Validators.required, Validators.maxLength(255)]]
   })
 
   ngOnInit(): void {
