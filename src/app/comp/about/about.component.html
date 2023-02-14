@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="about-info" *ngIf="!showEdit">
-      <p class="display-6">{{myData?.about}}</p>
+      <h3>{{myData?.about}}</h3>
     </div>
     <div class="data-control" *ngIf="isLogged && showEdit">
       <form class="form-edit" [formGroup]="aboutFormEdit" (ngSubmit)="onUpdate(myData.id)">

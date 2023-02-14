@@ -15,7 +15,7 @@ body {
 
 .arprog {
     position: fixed;
-    right: 94%;
+    left: 1%;
     top: 0;
 }
 
@@ -249,6 +249,10 @@ div i:hover{
   text-align: center;
 }
 
+input.ng-invalid.ng-touched {
+  border: 1px solid indianred;
+}
+
 .list-info h3{
   display: inline-block;
   margin-right: 15px;
@@ -269,3 +273,5 @@ div i:hover{
 .name-control {
   display: flex;
 }
+
+
